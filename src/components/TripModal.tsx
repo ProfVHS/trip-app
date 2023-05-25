@@ -1,12 +1,11 @@
-import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 
-type FormValues = {
+interface FormValues {
   city: string;
   start: string;
   end: string;
   persons: string;
-};
+}
 
 interface AddTripModal {
   setTrips: (trips: FormValues[]) => void;
@@ -14,7 +13,7 @@ interface AddTripModal {
 }
 
 export function AddTripModal({ setTrips, closeModal }: AddTripModal) {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm<FormValues>();
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     localStorage.getItem("trips")?.length === undefined &&
       localStorage.setItem("trips", `[${JSON.stringify(data)}]`);

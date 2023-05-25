@@ -1,5 +1,3 @@
-import React from "react";
-
 interface TripProps {
   city: string;
   persons: string;
@@ -19,7 +17,10 @@ export default function Trip({
 }: TripProps) {
   const personsList = persons.split(",");
   return (
-    <div className="bg-white drop-shadow-sm w-[70%] p-2 mt-5 rounded text-lg flex items-center justify-between relative cursor-pointer" onClick={() => deleteTrip(index)}>
+    <div
+      className="bg-white drop-shadow-sm w-[70%] p-2 mt-5 rounded text-lg flex items-center justify-between relative cursor-pointer"
+      onClick={() => deleteTrip(index)}
+    >
       <div className="flex flex-col">
         <span className="text-lg">{city}</span>
         <ol className="text-sm">
