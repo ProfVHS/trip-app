@@ -28,7 +28,7 @@ export function AddTripModal({ setTrips, closeModal }: AddTripModal) {
     }
   };
   return (
-    <div className="absolute w-1/5 h-1/3 bg-white top-1/3 left-[40%] p-2 drop-shadow-sm rounded">
+    <div className="absolute w-1/5 bg-white top-1/3 left-[40%] p-2 drop-shadow-sm rounded">
       <span className="font-bold text-lg">Add trip</span>
       <form
         className="flex flex-col items-center"
