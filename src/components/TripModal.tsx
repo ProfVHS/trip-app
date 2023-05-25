@@ -15,16 +15,16 @@ interface AddTripModal {
 export function AddTripModal({ setTrips, closeModal }: AddTripModal) {
   const { register, handleSubmit } = useForm<FormValues>();
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    localStorage.getItem("trips")?.length === undefined &&
+    if (localStorage.getItem("trips")?.length === undefined) {
       localStorage.setItem("trips", `[${JSON.stringify(data)}]`);
-
-    if (localStorage.getItem("trips")?.length != undefined) {
+    } else {
       const oldStorage: string = localStorage.getItem("trips") || "[]";
       const newStorage: FormValues[] = JSON.parse(oldStorage);
       newStorage.push(data);
       console.log(newStorage);
       setTrips(newStorage);
       localStorage.setItem("trips", JSON.stringify(newStorage));
+      closeModal();
     }
   };
   return (
